@@ -44,7 +44,7 @@ public class ExtentUtils {
 	 *
 	 * @throws Exception *************
 	 */
-	public static void setExtentConfig() throws Exception {
+public static void setExtentConfig() throws Exception {
 		try {
  
 			// Specify the report location
@@ -56,7 +56,7 @@ public class ExtentUtils {
 //			htmlReporter.loadXMLConfig(System.getProperty("user.dir") + "/src/main/resources/extent-config.xml");
  
 			spark = new ExtentSparkReporter(
-					System.getProperty("user.dir") + "/SkriptmateReport/Extent/" + "/Skripmatereport.html");
+					System.getProperty("user.dir") + "/SkriptmateReport/Extent/" + "Skripmatereport.html");
 			extent = new ExtentReports();
 			extent.attachReporter(spark);
  
@@ -73,7 +73,6 @@ public class ExtentUtils {
 		}
  
 	}
- 
 	/**
 	 * ************* Function to close extent stream *************
 	 */
