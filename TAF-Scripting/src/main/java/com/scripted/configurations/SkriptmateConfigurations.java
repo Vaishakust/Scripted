@@ -66,7 +66,7 @@ public class SkriptmateConfigurations {
  
 			if (configMap.get("Skriptmate.extent.report").equalsIgnoreCase("true")) {
 				try {
-					ExtentUtils.setSparkExtentPropValue(extentProFile_Path);
+					ExtentUtils.setExtentConfig();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
