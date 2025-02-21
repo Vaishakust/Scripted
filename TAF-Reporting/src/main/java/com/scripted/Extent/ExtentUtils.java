@@ -50,13 +50,13 @@ public class ExtentUtils {
 			// Specify the report location
 //			timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 //			htmlReporter = new ExtentHtmlReporter(
-//					System.getProperty("user.dir") + "/SkriptmateReport/Extent/" + timeStamp + "/Skripmatereport.html");
+//					System.getProperty("user.dir") + "/SkriptmateReport/Extent/" + "/Skripmatereport.html");
  
 //			htmlReporter.loadXMLConfig(System.getProperty("user.dir") + "/test-output/config.xml");
 //			htmlReporter.loadXMLConfig(System.getProperty("user.dir") + "/src/main/resources/extent-config.xml");
  
 			spark = new ExtentSparkReporter(
-					System.getProperty("user.dir") + "/SkriptmateReport/Extent/" + timeStamp + "/Skripmatereport.html");
+					System.getProperty("user.dir") + "/SkriptmateReport/Extent/" + "/Skripmatereport.html");
 			extent = new ExtentReports();
 			extent.attachReporter(spark);
  
@@ -166,8 +166,8 @@ public class ExtentUtils {
 			Thread.sleep(2000);
 			String reportFolder = "./SkriptmateReport/Extent/";
 			com.scripted.generic.FileUtils.makeDirs(reportFolder);
-			subConfig.addProperty("extent.reporter.spark.out", reportFolder + timeStamp + "/" + "Extent_Report");
-			subConfig.addProperty("screenshot.dir", reportFolder + timeStamp + "/" + "spark/screenshots/");
+			subConfig.addProperty("extent.reporter.spark.out", reportFolder  + "/" + "Extent_Report");
+			subConfig.addProperty("screenshot.dir", reportFolder  + "/" + "spark/screenshots/");
 			subConfig.addProperty("screenshot.rel.path", "./spark/screenshots/");
 			((AbstractConfiguration) subConfig).append(baseConfig);
  
@@ -177,8 +177,8 @@ public class ExtentUtils {
 //			Thread.sleep(2000);
 //			String reportFolder = "./SkriptmateReport/Extent/";
 //			com.scripted.generic.FileUtils.makeDirs(reportFolder);
-//			conf.setProperty("extent.reporter.spark.out", reportFolder + timeStamp +"/"+ "Extent_Report");
-//			conf.setProperty("screenshot.dir", reportFolder + timeStamp +"/"+ "spark/screenshorts/");
+//			conf.setProperty("extent.reporter.spark.out", reportFolder  +"/"+ "Extent_Report");
+//			conf.setProperty("screenshot.dir", reportFolder  +"/"+ "spark/screenshorts/");
 //			conf.setProperty("screenshot.rel.path",  "./spark/screenshorts/");
 //			conf.save();
 		} catch (Exception e1) {
@@ -193,10 +193,10 @@ public class ExtentUtils {
 	public static void copyExtentLogo() throws Exception {
 		try {
 			File f1 = new File(cdir + "/src/main/resources/Reporting/Artefacts/Logo.png");
-			File f2 = new File(cdir + "/SkriptmateReport/Extent/" + timeStamp + "/Logo.png");
+			File f2 = new File(cdir + "/SkriptmateReport/Extent/"  + "/Logo.png");
 			FileUtils.copyFile(f1, f2);
 			File f3 = new File(cdir + "/SkriptmateReport/Extent/Report.html");
-			File f4 = new File(cdir + "/SkriptmateReport/Extent/" + timeStamp + File.separator + timeStamp + "_Report.html");
+			File f4 = new File(cdir + "/SkriptmateReport/Extent/"  + File.separator  + "_Report.html");
 			FileUtils.copyFile(f3, f4);
 		} catch (Exception e1) {
 			e1.printStackTrace();
@@ -206,11 +206,11 @@ public class ExtentUtils {
 	public static void copyExtentLogoAndScreenshots(String extentPropFilePath) {
 		try {
 			File f1 = new File(cdir + "/src/main/resources/Reporting/Artefacts/Logo.png");
-			File f2 = new File(cdir + "/SkriptmateReport/Extent/" + timeStamp + "/Logo.png");
+			File f2 = new File(cdir + "/SkriptmateReport/Extent/"  + "/Logo.png");
 			FileUtils.copyFile(f1, f2);
 			File f3 = new File(cdir + "/SkriptmateReport/Extent/Artefacts/Extent_Report.html");
 			File f4 = new File(
-					cdir + "/SkriptmateReport/Extent/" + timeStamp + File.separator + timeStamp + "_Report.html");
+					cdir + "/SkriptmateReport/Extent/"  + File.separator  + "_Report.html");
 			if (f3.exists()) {
 				FileUtils.moveFile(f3, f4);
 			}			
@@ -218,7 +218,7 @@ public class ExtentUtils {
 			Configuration baseConfig = configs.properties(new File(extentPropFilePath));
 			if (!baseConfig.getProperty("extent.reporter.spark.base64imagesrc").equals("true")) {
 				File f5 = new File(cdir + "/SkriptmateReport/Extent/Artefacts/spark");
-				File f6 = new File(cdir + "/SkriptmateReport/Extent/" + timeStamp + File.separator + "spark");
+				File f6 = new File(cdir + "/SkriptmateReport/Extent/"  + File.separator + "spark");
 				if (f5.exists()) {
 					FileUtils.moveDirectory(f5, f6);
 				}
